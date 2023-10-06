@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:placement_package_predictor/result.dart';
 
 class PredictionPage extends StatefulWidget {
   const PredictionPage({Key? key}) : super(key: key);
@@ -58,8 +59,10 @@ class _PredictionPageState extends State<PredictionPage> {
             SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                // Handle the button press
-                // Add your prediction logic here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ResultPage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF26206F),
