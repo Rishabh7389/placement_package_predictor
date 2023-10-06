@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/prediction",
       routes: {
         "/prediction": (context) => PredictionPage(),
+        "/result": (context) => ResultPage()
       },
     );
   }
