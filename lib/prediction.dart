@@ -18,7 +18,7 @@ class _PredictionPageState extends State<PredictionPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "SELECT YOUR SKILL",
               style: TextStyle(
                 fontSize: 54,
@@ -26,9 +26,9 @@ class _PredictionPageState extends State<PredictionPage> {
                 color: Color(0xFF26206F),
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _buildSkillContainer("SKILL 1", 0),
                 _buildSkillContainer("SKILL 2", 1),
@@ -36,9 +36,9 @@ class _PredictionPageState extends State<PredictionPage> {
                 _buildSkillContainer("SKILL 4", 3),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _buildSkillContainer("SKILL 5", 4),
                 _buildSkillContainer("SKILL 6", 5),
@@ -46,9 +46,9 @@ class _PredictionPageState extends State<PredictionPage> {
                 _buildSkillContainer("SKILL 8", 7),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _buildSkillContainer("SKILL 9", 8),
                 _buildSkillContainer("SKILL 10", 9),
@@ -56,7 +56,7 @@ class _PredictionPageState extends State<PredictionPage> {
                 _buildSkillContainer("SKILL 12", 11),
               ],
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -65,12 +65,12 @@ class _PredictionPageState extends State<PredictionPage> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF26206F),
-                fixedSize: Size(200, 60),
+                backgroundColor: const Color(0xFF26206F),
+                fixedSize: const Size(200, 60),
 
                 // Set the width and height of the button
               ),
-              child: Text(
+              child: const Text(
                 "PREDICT NOW!",
                 style: TextStyle(fontSize: 18),
               ),
@@ -83,10 +83,11 @@ class _PredictionPageState extends State<PredictionPage> {
 
   Widget _buildSkillContainer(String skillName, int index) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.blue,
+        color: Color.fromARGB(255, 255, 255, 255),
         borderRadius: BorderRadius.circular(32),
+        border: Border.all(color: Color(0xFF87A850), width: 2),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -99,13 +100,13 @@ class _PredictionPageState extends State<PredictionPage> {
               });
             },
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Text(
             skillName,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
           ),
         ],
@@ -115,7 +116,7 @@ class _PredictionPageState extends State<PredictionPage> {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: PredictionPage(),
   ));
 }
