@@ -14,7 +14,6 @@ class PredictionPage extends StatelessWidget {
             child: Text(
               "SELECT YOUR SKILL",
               style: TextStyle(
-                  fontFamily: 'poppins',
                   fontSize: 54,
                   fontWeight: FontWeight.w700,
                   color: Color(0xFF26206F)),
