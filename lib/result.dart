@@ -5,6 +5,10 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Center(
+        child: Text("Congratulations,you will get 45 lakh CTC "),
+      ),
+    );
   }
 }
