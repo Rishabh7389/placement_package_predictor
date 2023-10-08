@@ -28,10 +28,14 @@ class ResultPage extends StatelessWidget {
               "you are predicted to have a CTC of 45 lakhs.",
               style: TextStyle(fontSize: 18),
             ),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context); // Go back to the previous screen
               },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF26206F),
+              ),
               child: Text("Go Back"),
             ),
           ],
