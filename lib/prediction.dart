@@ -80,7 +80,9 @@ class _PredictionPageState extends State<PredictionPage> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text("No Skills Selected"),
+                        title: Text("No Skills Selected",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
                         content: Text(
                             "Please select at least one skill before predicting."),
                         actions: [
@@ -88,6 +90,14 @@ class _PredictionPageState extends State<PredictionPage> {
                             onPressed: () {
                               Navigator.of(context).pop(); // Close the alert
                             },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF26206F),
+                              fixedSize: const Size(100, 40),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    19), // Set the border radius here
+                              ),
+                            ),
                             child: Text("OK"),
                           ),
                         ],
