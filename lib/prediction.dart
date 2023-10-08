@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:placement_package_predictor/result.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -65,6 +66,35 @@ class _PredictionPageState extends State<PredictionPage> {
             ElevatedButton(
               onPressed: () {
                 // Handle button press
+                bool anySkillSelected =
+                    isCheckedList.any((isChecked) => isChecked);
+
+                if (anySkillSelected) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ResultPage()),
+                  );
+                } else {
+                  // Show an alert or a message if no skills are selected
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("No Skills Selected"),
+                        content: Text(
+                            "Please select at least one skill before predicting."),
+                        actions: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(); // Close the alert
+                            },
+                            child: Text("OK"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF26206F),

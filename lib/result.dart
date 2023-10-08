@@ -1,13 +1,41 @@
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  const ResultPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      // appBar: AppBar(
+      //   title: Text("Result Page"),
+      // ),
       body: Center(
-        child: Text("Congratulations,you will get 45 lakh CTC "),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Congratulations,",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              "Based on your selected skills,",
+              style: TextStyle(fontSize: 18),
+            ),
+            Text(
+              "you are predicted to have a CTC of 45 lakhs.",
+              style: TextStyle(fontSize: 18),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context); // Go back to the previous screen
+              },
+              child: Text("Go Back"),
+            ),
+          ],
+        ),
       ),
     );
   }
