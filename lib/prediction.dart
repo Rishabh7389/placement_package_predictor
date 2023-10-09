@@ -65,7 +65,6 @@ class _PredictionPageState extends State<PredictionPage> {
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                // Handle button press
                 bool anySkillSelected =
                     isCheckedList.any((isChecked) => isChecked);
 
@@ -75,7 +74,6 @@ class _PredictionPageState extends State<PredictionPage> {
                     MaterialPageRoute(builder: (context) => ResultPage()),
                   );
                 } else {
-                  // Show an alert or a message if no skills are selected
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -88,14 +86,13 @@ class _PredictionPageState extends State<PredictionPage> {
                         actions: [
                           ElevatedButton(
                             onPressed: () {
-                              Navigator.of(context).pop(); // Close the alert
+                              Navigator.of(context).pop();
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF26206F),
                               fixedSize: const Size(100, 40),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                    19), // Set the border radius here
+                                borderRadius: BorderRadius.circular(19),
                               ),
                             ),
                             child: Text("OK"),
@@ -110,8 +107,7 @@ class _PredictionPageState extends State<PredictionPage> {
                 backgroundColor: const Color(0xFF26206F),
                 fixedSize: const Size(200, 60),
                 shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(19), // Set the border radius here
+                  borderRadius: BorderRadius.circular(19),
                 ),
               ),
               child: const Text(
@@ -128,22 +124,18 @@ class _PredictionPageState extends State<PredictionPage> {
   Widget _buildSkillContainer(String skillName, int index) {
     Color containerColor = Colors.white;
     Color textColor = Colors.black;
-    Color checkboxColor =
-        Colors.white; // Set checkbox color to match the container background
+    Color checkboxColor = Colors.white;
 
     if (isCheckedList[index]) {
-      containerColor = Color(
-          0xFF87A850); // Change container color to green when checkbox is selected
-      textColor =
-          Colors.white; // Change text color to white when checkbox is selected
-      checkboxColor =
-          Color(0xFF87A850); // Set checkbox color to match the selected state
+      containerColor = Color(0xFF87A850);
+      textColor = Colors.white;
+      checkboxColor = Color(0xFF87A850);
     }
 
     return InkWell(
       onTap: () {
         setState(() {
-          isCheckedList[index] = !isCheckedList[index]; // Toggle checkbox state
+          isCheckedList[index] = !isCheckedList[index];
         });
       },
       child: Container(
@@ -157,17 +149,15 @@ class _PredictionPageState extends State<PredictionPage> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Invisible checkbox with the same background color as the container
             Container(
               width: 24,
               height: 24,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: checkboxColor,
-                border: Border.all(
-                    color: Colors.transparent), // Hide the checkbox border
+                border: Border.all(color: Colors.transparent),
               ),
-              child: isCheckedList[index] // Display checkmark when selected
+              child: isCheckedList[index]
                   ? Icon(
                       Icons.check_circle_rounded,
                       size: 25,
