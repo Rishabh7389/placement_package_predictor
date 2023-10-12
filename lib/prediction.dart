@@ -16,6 +16,14 @@ class PredictionPage extends StatefulWidget {
 
 class _PredictionPageState extends State<PredictionPage> {
   List<bool> isCheckedList = List.generate(12, (index) => false);
+  List<String> dropdownOptions2 = [
+    "Mechanical Engineering",
+    "Computer Science Engineering",
+    "Electronics"
+  ];
+  List<String> dropdownOptions1 = ["Undergraduate", "Graduate", "Postgraduate"];
+  String selectedOption2 = "Mechanical Engineering";
+  String selectedOption1 = "Undergraduate";
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +33,67 @@ class _PredictionPageState extends State<PredictionPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
+              "SELECT YOUR EDUCATIONAL QUALIFICATION",
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF26206F),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Dropdowns in a Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // First Dropdown
+                Text(
+                  "Qualification ",
+                  style: TextStyle(fontSize: 20),
+                ),
+                DropdownButton<String>(
+                  value: selectedOption1,
+                  onChanged: (newValue) {
+                    setState(() {
+                      selectedOption1 = newValue!;
+                    });
+                  },
+                  items: dropdownOptions1.map((option) {
+                    return DropdownMenuItem<String>(
+                      value: option,
+                      child: Text(option),
+                    );
+                  }).toList(),
+                ),
+
+                // Spacer between Dropdowns
+                SizedBox(width: 20),
+
+                // Second Dropdown
+                Text(
+                  "Branch:",
+                  style: TextStyle(fontSize: 20),
+                ),
+                DropdownButton<String>(
+                  value: selectedOption2,
+                  onChanged: (newValue) {
+                    setState(() {
+                      selectedOption2 = newValue!;
+                    });
+                  },
+                  items: dropdownOptions2.map((option) {
+                    return DropdownMenuItem<String>(
+                      value: option,
+                      child: Text(option),
+                    );
+                  }).toList(),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            const Text(
               "SELECT YOUR SKILL",
               style: TextStyle(
                 fontSize: 40,
@@ -32,7 +101,9 @@ class _PredictionPageState extends State<PredictionPage> {
                 color: Color(0xFF26206F),
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
+
+            // Skill Selection Rows
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -62,6 +133,8 @@ class _PredictionPageState extends State<PredictionPage> {
                 _buildSkillContainer("CPP      ", 11),
               ],
             ),
+
+            // Predict Button
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
