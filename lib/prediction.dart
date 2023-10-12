@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:placement_package_predictor/result.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: PredictionPage(),
-  ));
-}
-
 class PredictionPage extends StatefulWidget {
   const PredictionPage({Key? key}) : super(key: key);
 
