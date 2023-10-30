@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key}) : super(key: key);
+  final String result;
+  const ResultPage({Key? key, required this.result}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +12,15 @@ class ResultPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              result,
+              style: TextStyle(
+                  fontSize: 38,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green),
+            ),
+            SizedBox(height: 20),
+            Lottie.asset("assets/images/congo.json", height: 200, width: 200),
             const Text(
               "Congratulations,",
               style: TextStyle(
@@ -17,12 +28,14 @@ class ResultPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(height: 20),
             const Text(
               "Based on your selected skills,",
               style: TextStyle(fontSize: 18),
             ),
-            const Text(
-              "you are predicted to have a CTC of 45 lakhs.",
+            SizedBox(height: 20),
+            Text(
+              "you are predicted to get a package $result",
               style: TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 20),
