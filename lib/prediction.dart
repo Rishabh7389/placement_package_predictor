@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:placement_package_predictor/result.dart';
+import 'package:http/http.dart' as http;
 
 class PredictionPage extends StatefulWidget {
   const PredictionPage({Key? key}) : super(key: key);
@@ -131,11 +134,18 @@ class _PredictionPageState extends State<PredictionPage> {
             // Predict Button
             const SizedBox(height: 40),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 bool anySkillSelected =
                     isCheckedList.any((isChecked) => isChecked);
 
                 if (anySkillSelected) {
+                  await http
+                      .post(Uri.parse("http://127.0.0.1:8000/predict"),
+                          headers: {"Content-Type": "application/json"},
+                          body: jsonEncode({"skills": "python"}))
+                      .then((value) {
+                    print(value.body);
+                  });
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ResultPage()),
